@@ -4,7 +4,7 @@
 void printQueue(Queue *que) {
 	printf("\n");
 	for(Node *tmp = que->start;tmp; tmp = tmp->next){
-		printf("%d ", *(int *)tmp->data);
+		printf("%s ", (char *)tmp->data);
 	}
 }
 
@@ -13,14 +13,19 @@ int main() {
         if(que == NULL){
                 que = createQueue();
         }
-        int *data = (int *)malloc(sizeof(int));
-	*data = 10;
+        //int *data = (int *)malloc(sizeof(int));
+	char *data = (char *)malloc(sizeof(char));
+	data = "Sanket";
         enQueue(que, data);
-        data = (int *)malloc(sizeof(int));
-	*data = 20;
+        //data = (int *)malloc(sizeof(int));
+	//*data = 20;
+	data = (char *)malloc(sizeof(char));
+	data = "Payghan";
         enQueue(que, data);
-        data = (int *)malloc(sizeof(int));
-	*data = 30;
+        //data = (int *)malloc(sizeof(int));
+	//*data = 30;
+	data = (char *)malloc(sizeof(char));
+	data = "Shevgaon";
         enQueue(que, data);
         printQueue(que);
         void *tmp = deQueue(que);
