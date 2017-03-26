@@ -40,34 +40,34 @@ void testIntHeap() {
         insertHeapNode(heap, &c1);
         insertHeapNode(heap, &c2);
         printf("\nAfter 4 insert");
-        printHeap(heap, heap->root);
+        printHeap(heap);
 
 	removeHeapNode(heap);
         removeHeapNode(heap);
         removeHeapNode(heap);
 	printf("\nAfter 3 remove");
-	printHeap(heap, heap->root);
+	printHeap(heap);
 
         removeHeapNode(heap);
         printf("\nAfter 4 remove");
-        printHeap(heap, heap->root);
+        printHeap(heap);
 
         removeHeapNode(heap);
         printf("\nAfter 5 Remove");
-        printHeap(heap, heap->root);
+        printHeap(heap);
 
 	insertHeapNode(heap, &c3);
         insertHeapNode(heap, &c4);
         printf("\nAfter 2 insert");
-        printHeap(heap, heap->root);
+        printHeap(heap);
 
         removeHeapNode(heap);
         printf("\nAfter 1 remove");
-        printHeap(heap, heap->root);
+        printHeap(heap);
 
         removeHeapNode(heap);
         printf("\nAfter 2 remove");
-        printHeap(heap, heap->root);
+        printHeap(heap);
 }
 
 int campString(void *s1, void *s2) {
@@ -116,7 +116,7 @@ void testStringHeap() {
 	insertHeapNode(heap, s4);
         
 	printf("\nAfter 4 insert");
-        printHeap(heap, heap->root);
+        printHeap(heap);
         
 	tmp = (char *)removeHeapNode(heap);
 	printf("\nRemoved: %s\n", tmp);
@@ -125,12 +125,12 @@ void testStringHeap() {
         tmp = (char *)removeHeapNode(heap);
 	printf("\nRemoved: %s\n", tmp);
         printf("\nAfter 3 remove");
-        printHeap(heap, heap->root);
+        printHeap(heap);
 	
 	insertHeapNode(heap, s5);
 	insertHeapNode(heap, s6);
         printf("\nAfter 2 insert");
-        printHeap(heap, heap->root);
+        printHeap(heap);
         
 	tmp = (char *)removeHeapNode(heap);
 	printf("\nRemoved: %s\n", tmp);
@@ -139,10 +139,10 @@ void testStringHeap() {
         tmp = (char *)removeHeapNode(heap);
 	printf("\nRemoved: %s\n", tmp);
         printf("\nAfter 3 remove");
-        printHeap(heap, heap->root);
+        printHeap(heap);
         
 	tmp = (char *)removeHeapNode(heap);
-        printHeap(heap, heap->root);
+        printHeap(heap);
 	printf("\nRemoved: %s\n", tmp);
 }
 

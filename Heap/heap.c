@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "heap.h"
-#include "../Queue/queue.h"
+//#include "../Queue/queue.h"
 
 Heap *createHeap(int (*fp)(void *, void *), void (*printFunc)(void *)) {
 	Heap *heap = (Heap *)malloc(sizeof(Heap));
@@ -145,13 +145,17 @@ void *removeHeapNode(Heap *heap) {
 	return data;	
 }
 
-void printHeap(Heap *heap, HeapNode *root) {
+void _displayHeap(Heap *heap, HeapNode *root) {
         if(root) {
 		printf("->");
                 heap->printData(root->data);
-                printHeap(heap, root->left);
-                printHeap(heap, root->right);
+                _displayHeap(heap, root->left);
+                _displayHeap(heap, root->right);
         }
+}
+
+void printHeap(Heap *heap) {
+	_displayHeap(heap, heap->root);
 }
 
 /*

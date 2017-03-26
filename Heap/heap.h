@@ -37,4 +37,4 @@ void insertHeapNode(Heap *heap, void *data);
 
 void *removeHeapNode(Heap *heap);
 
-void printHeap(Heap *heap, HeapNode *node);
+void printHeap(Heap *heap);
