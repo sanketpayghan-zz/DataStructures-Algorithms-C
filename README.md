@@ -1,1 +1,1 @@
-# Collections-List-Dict-in-C
+# Data structures and Algorithms in C
