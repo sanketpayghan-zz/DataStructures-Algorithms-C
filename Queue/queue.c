@@ -22,6 +22,7 @@ Node* createNode(void* data) {
 	}
 	node->data = data;
 	node->next = NULL;
+	node->prev = NULL;
 	return node;
 }
 
@@ -44,7 +45,21 @@ void enQueue(Queue *que, void* data) {
 	}
 	else {
 		que->end->next = node;
+		node->prev = que->end;
 		que->end = node;
+	}
+}
+
+void enQueueStart(Queue *que, void *data) {
+	Node *node = createNode(data);
+	if (que->start == NULL && que->end == NULL) {
+		que->start = node;
+		que->end = node;
+	}
+	else {
+		que->start->prev = node;
+		node->next = que->start;
+		que->start = node;
 	}
 }
 
@@ -52,8 +67,36 @@ void* deQueue(Queue *que) {
 	if (!que->start)
 		return NULL;
 	Node *tmp = que->start;
-	que->start = que->start->next;
-	return tmp->data;
+	if (que->start == que->end) {
+		que->start = NULL;
+		que->end = NULL;
+	}
+	else {
+		que->start = que->start->next;
+		if(que->start)
+			que->start->prev = NULL;
+	}
+	void *data = tmp->data;
+	free(tmp);
+	return data;
+}
+
+void* deQueueEnd(Queue *que) {
+	if(!que->end)
+		return NULL;
+	Node *tmp = que->end;
+	if (que->start == que->end) {
+		que->start = NULL;
+		que->end = NULL;
+	}
+	else {
+		que->end = que->end->prev;
+		if(que->end)
+			que->end->next = NULL;
+	}
+	void *data = tmp->data;
+	free(tmp);
+	return data;
 }
 
 /*

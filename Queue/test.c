@@ -8,6 +8,13 @@ void printQueue(Queue *que) {
 	}
 }
 
+void printReverseQueue(Queue *que) {
+	printf("\n");
+	for(Node *tmp = que->end;tmp; tmp = tmp->prev){
+		printf("%s ", (char *)tmp->data);
+	}
+}
+
 int main() {
         Queue *que = NULL;
         if(que == NULL){
@@ -28,19 +35,27 @@ int main() {
 	data = "Shevgaon";
         enQueue(que, data);
         printQueue(que);
-        void *tmp = deQueue(que);
-        printf("\n%d", *(int *)(tmp));
+        printReverseQueue(que);
+        void *tmp = deQueueEnd(que);
+        printf("\n%s", (char *)(tmp));
         printQueue(que);
+        printReverseQueue(que);
         tmp = deQueue(que);
-        printf("\n%d", *(int *)(tmp));
+        printf("\n%s", (char *)(tmp));
         printQueue(que);
+        printReverseQueue(que);
         tmp = deQueue(que);
-        printf("\n%d", *(int *)(tmp));
+        printf("\n%s", (char *)(tmp));
         printQueue(que);
         tmp = deQueue(que);
         if (tmp)
                 printf("\n%d", *(int *)tmp);
         printQueue(que);
+	data = (char *)malloc(sizeof(char));
+	data = "Ahemadnagar";
+        enQueue(que, data);
+        printQueue(que);
+        printReverseQueue(que);
 	/*
 	int a = 10;
 	void * b = &a;
