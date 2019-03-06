@@ -1,0 +1,67 @@
+// this is the program for linked list and opearations
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+
+struct node{
+int data;
+struct node *next;
+}; // Creation of node which is unit element in the linked list
+
+
+struct node *start= NULL;
+
+void create()
+{
+    char ch;
+
+    do{
+       struct node *new_node, *current;
+
+       new_node=(struct node*)malloc(sizeof(struct node));
+
+       printf("\n Enter the data");
+       scanf("%d", &new_node->data);
+
+       new_node.next=NULL;
+
+
+       if(start== NULL)
+       {
+           start= new_node;
+           current=new_node;
+       }
+       else
+       {
+           current->next=new_node;
+           current=new_node;
+
+       }
+       printf("\n Do you want to create another node");
+       ch=getche();
+
+      }while(ch!='n');
+}
+
+void display()
+{
+    struct node *new_node;
+    printf("\n The linked list is:");
+
+    new_node=start;
+
+    while(new_node!=NULL);
+    {
+        printf("%d---->",new_node->data);
+        new_node=new_node->next;
+    }
+    printf("\n NULL");
+}
+
+void main()
+{
+    create();
+    display();
+    getch();
+}
